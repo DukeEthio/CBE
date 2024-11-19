@@ -1,0 +1,47 @@
+SUBROUTINE SAMPLE.SCHOOL.PAYMENT.VAL
+    $INCLUDE I_COMMON
+    $INCLUDE I_EQUATE
+
+    CALL INIT
+    CALL PROCESS
+
+    RETURN
+
+INIT:
+    DEBUG
+    APPLICATION = "SAMPLE"
+    FN.BILL = "F.SAMPLE.SCHOOL.PAYMENT"
+    OPEN F.FILE TO FN.BILL ELSE STOP
+    CALL OPF(FN.BILL)
+
+    RETURN
+
+PROCESS:
+    DEBUG
+    BILL.ID = @COMI
+
+    * Call Java Client for API Interaction
+    API.RESPONSE = ""
+    CALLJ "JavaClient", "POST", BILL.ID SETTING API.RESPONSE ON ERROR
+        CRT "Java Client Error"
+        RETURN
+    END
+
+    * Process API Response
+    RESPONSE.CODE = FIELD(API.RESPONSE, "#", 1)
+    RESPONSE.BODY = FIELD(API.RESPONSE, "#", 2)
+
+    IF RESPONSE.CODE NE 200 THEN
+        CRT "API Error: " : RESPONSE.BODY
+        RETURN
+    END ELSE
+        * Parse Response and Update Records
+        R.BILL.ID = BILL.ID
+        R.BILL.AMOUNT = EXTRACT(RESPONSE.BODY, "amount")
+        R.BILL.PENALTY = EXTRACT(RESPONSE.BODY, "penalty")
+
+        WRITE R.BILL.ID TO FN.BILL
+    END
+
+    RETURN
+END

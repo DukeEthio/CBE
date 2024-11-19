@@ -1,0 +1,59 @@
+SUBROUTINE SAMPLE.SCHOOL.PAYMENT.FIELDS
+    $INCLUDE I_COMMON
+    $INCLUDE I_EQUATE
+    $INCLUDE I_DataTypes
+
+    * Define the Bill ID field (already defined)
+    CALL Table.definedId("BILL.ID", T24_String)
+
+    * Define the DATE field (assumed to be string with length 20)
+    fieldName = "DATE"
+    fieldLength = 20
+    fieldType = 'ANY'
+    neighbour = ''
+    CALL TABLE.addFieldDefinition(fieldName, fieldLength, fieldType, neighbour)
+
+    * Define the AMOUNT field (assumed to be numeric, length 20)
+    fieldName = "AMOUNT"
+    fieldLength = 20
+    fieldType = 'ANY'  * Adjust data type as needed (e.g., T24_Decimal, T24_Float)
+    neighbour = ''
+    CALL TABLE.addFieldDefinition(fieldName, fieldLength, fieldType, neighbour)
+
+    * Define the PENALTY field (assumed to be numeric, length 20)
+    fieldName = "PENALTY"
+    fieldLength = 20
+    fieldType = 'ANY'  * Adjust data type as needed
+    neighbour = ''
+    CALL TABLE.addFieldDefinition(fieldName, fieldLength, fieldType, neighbour)
+
+    * Define the DEBIT.ACCOUNT field (assumed to be string, length 20)
+    fieldName = "DEBIT.ACCOUNT"
+    fieldLength = 20
+    fieldType = 'ANY'  * Adjust data type if needed
+    neighbour = ''
+    CALL TABLE.addFieldDefinition(fieldName, fieldLength, fieldType, neighbour)
+
+    * Define the CREDIT.ACCOUNT field (assumed to be string, length 20)
+    fieldName = "CREDIT.ACCOUNT"
+    fieldLength = 20
+    fieldType = 'ANY'  * Adjust data type if needed
+    neighbour = ''
+    CALL TABLE.addFieldDefinition(fieldName, fieldLength, fieldType, neighbour)
+
+    * Define the STATUS field (assumed to be string, length 20)
+    fieldName = "STATUS"
+    fieldLength = 20
+    fieldType = 'ANY'  * Adjust data type as needed
+    neighbour = ''
+    CALL TABLE.addFieldDefinition(fieldName, fieldLength, fieldType, neighbour)
+
+    * Add additional references or overrides (if applicable)
+    CALL Table.addLocalReferenceField('')
+    CALL Table.addOverrideField
+
+    * Set the audit position for tracking changes
+    CALL Table.setAuditPosition
+
+    RETURN
+END

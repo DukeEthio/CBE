@@ -1,0 +1,14 @@
+SUBROUTINE SAMPLE.SCHOOL.PAYMENT
+    $INCLUDE I_COMMON
+    $INCLUDE I_EQUATE
+    $INCLUDE I_Table
+
+    Table.name = 'SAMPLE.SCHOOL.PAYMENT'
+    Table.title = 'SAMPLE SCHOOL PAYMENT'
+    Table.stereotype = 'H'
+    Table.product = 'EB'
+    Table.idPrefix = 'BILLSAMPLE'
+
+    RETURN
+END
+
