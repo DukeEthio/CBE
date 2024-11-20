@@ -1,14 +1,15 @@
-Student Payment API
+***Student Payment API***
 A simple REST API for managing student fee payments, tracking payment statuses, and handling penalties. The API supports basic authentication and allows for CRUD operations related to students and school account balances.
 
-Features
+****Features****
 Student Management: List all students, retrieve individual student details, and check their payment status.
 Payment Processing: Allows for simulating student fee payments and applying penalties for late payments.
 School Account: View the current balance of the school's account.
 Authentication: Basic Authentication is required to access the API.
 
-Endpoints
-1. GET /api/students
+****Endpoints****
+**1. GET /api/students**
+
 Description: Fetches the list of all students along with their fee details and payment status.
 
 Response:
@@ -29,7 +30,8 @@ Response:
   ...
 ]
 
-2. GET /api/student/{id}
+**2. GET /api/student/{id}**
+
 Description: Retrieves a student's fee details and payment status by their ID.
 Parameters:
 id: The ID of the student.
@@ -59,81 +61,14 @@ Unpaid Student:
   }
 }
 
-Error Response (Student Not Found):
+- Error Response (Student Not Found):
 
 {
   "error": "There is no student named by that ID"
 }
 
+**3. GET /api/school/balance**
 
-Here's a README.md template for your API project, which includes a description of the API, how to set it up, and examples of usage.
-
-Student Payment API
-A simple REST API for managing student fee payments, tracking payment statuses, and handling penalties. The API supports basic authentication and allows for CRUD operations related to students and school account balances.
-
-Features
-Student Management: List all students, retrieve individual student details, and check their payment status.
-Payment Processing: Allows for simulating student fee payments and applying penalties for late payments.
-School Account: View the current balance of the school's account.
-Authentication: Basic Authentication is required to access the API.
-Endpoints
-1. GET /api/students
-Description: Fetches the list of all students along with their fee details and payment status.
-Response:
-json
-Copy code
-[
-  {
-    "id": 1,
-    "name": "Abrham",
-    "feeAmount": 1000,
-    "paymentStatus": false
-  },
-  {
-    "id": 2,
-    "name": "Mekuriaw",
-    "feeAmount": 1200,
-    "paymentStatus": false
-  },
-  ...
-]
-2. GET /api/student/{id}
-Description: Retrieves a student's fee details and payment status by their ID.
-Parameters:
-id: The ID of the student.
-Response:
-Paid Student:
-json
-Copy code
-{
-  "message": "Payment successfully processed",
-  "student": {
-    "id": 1,
-    "name": "Abrham",
-    "feeAmount": 1000,
-    "paymentStatus": true
-  }
-}
-Unpaid Student:
-json
-Copy code
-{
-  "message": "Not paid",
-  "student": {
-    "id": 2,
-    "name": "Mekuriaw",
-    "feeAmount": 1200,
-    "paymentStatus": false
-  }
-}
-Error Response (Student Not Found):
-json
-Copy code
-{
-  "error": "There is no student named by that ID"
-}
-
-3. GET /api/school/balance
 Description: Fetches the current balance of the school's account.
 
 Response:
@@ -143,7 +78,8 @@ Response:
   "currency": "Birr"
 }
 
-4. POST /api/payment/create
+**4. POST /api/payment/create**
+
 Description: Processes a student payment and updates their payment status. The request should include the student's ID, the payment amount, and the payee's name.
 
 Parameters:
@@ -175,43 +111,44 @@ Request Example (Late Payment with Penalty):
   }
 }
 
-Error Response (Insufficient Funds):
+- Error Response (Insufficient Funds):
 
 {
   "error": "Insufficient funds in school account"
 }
 
-Error Response (Invalid Payment Amount):
+- Error Response (Invalid Payment Amount):
 
 {
   "error": "Payment amount must be 1000 Birr"
 }
 
 
-Error Response (Student Not Found):
+- Error Response (Student Not Found):
 
 {
   "error": "Student not found"
 }
 
 
-Authentication
+**Authentication**
 
 Basic Authentication: All /api/ routes require Basic Authentication with the following credentials:
 Username: admin
 Password: password
 You can use tools like Postman
 
-How to Set Up
-1. Clone the repository:
+****How to Set Up********
+
+**1. Clone the repository:**
 
 git clone https://gitlab.cbe.com.et/MesfinMitikie/ifb_training/schoolpaysys.git
 cd schoolpaysys
 
-2. Install dependencies:
+**2. Install dependencies:**
 npm install
 
-3. Run the server:
+**3. Run the server:**
 npm start
 
-4. The server will be running on http://localhost:3000.
+**4. The server will be running on http://localhost:3000.**
