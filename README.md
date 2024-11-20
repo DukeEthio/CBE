@@ -2,10 +2,10 @@
 A simple REST API for managing student fee payments, tracking payment statuses, and handling penalties. The API supports basic authentication and allows for CRUD operations related to students and school account balances.
 
 ****Features****
-Student Management: List all students, retrieve individual student details, and check their payment status.
-Payment Processing: Allows for simulating student fee payments and applying penalties for late payments.
-School Account: View the current balance of the school's account.
-Authentication: Basic Authentication is required to access the API.
+- Student Management: List all students, retrieve individual student details, and check their payment status.
+- Payment Processing: Allows for simulating student fee payments and applying penalties for late payments.
+- School Account: View the current balance of the school's account.
+- Authentication: Basic Authentication is required to access the API.
 
 ****Endpoints****
 **1. GET /api/students**
@@ -123,13 +123,11 @@ Request Example (Late Payment with Penalty):
   "error": "Payment amount must be 1000 Birr"
 }
 
-
 - Error Response (Student Not Found):
 
 {
   "error": "Student not found"
 }
-
 
 **Authentication**
 
@@ -142,13 +140,6 @@ You can use tools like Postman
 
 **1. Clone the repository:**
 
+```sh
 git clone https://gitlab.cbe.com.et/MesfinMitikie/ifb_training/schoolpaysys.git
 cd schoolpaysys
-
-**2. Install dependencies:**
-npm install
-
-**3. Run the server:**
-npm start
-
-**4. The server will be running on http://localhost:3000.**
