@@ -19,11 +19,11 @@ public class SchoolPaymentClient {
         String jsonData = "{\"studentId\": " + uniqueID + ",\"amount\": 1000.00,\"penalty\": 100.00}";
 
         // Call GET Method
-        String callGetMethod = getRequest(baseURL + "/api/CBE/schoolbill/" + uniqueID, username, password);
+        String callGetMethod = getRequest(baseURL + "/api/students" + uniqueID, username, password);
         System.out.println("\n************** GET METHOD RESPONSE **************\n" + callGetMethod);
 
         // Call POST Method
-        String callPostMethod = postRequest(baseURL + "/api/CBE/schoolbill", jsonData, username, password);
+        String callPostMethod = postRequest(baseURL + "/api/payment/create", jsonData, username, password);
         System.out.println("\n************** POST METHOD RESPONSE **************\n" + callPostMethod);
     }
 
