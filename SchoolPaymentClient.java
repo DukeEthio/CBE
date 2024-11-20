@@ -5,7 +5,6 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
-// Use Apache Commons Codec for Base64 encoding
 import java.util.Base64;
 
 
@@ -31,7 +30,8 @@ public class SchoolPaymentClient {
 
     // GET Request Implementation
     public static String getRequest(String urlString, String username, String password) {
-        String serverResponse = null;
+        String serverResponse = "This value will be used"; 
+        System.out.println(serverResponse);
 
         try {
             URI uri = new URI(urlString);
@@ -59,7 +59,8 @@ public class SchoolPaymentClient {
 
     // POST Request Implementation
     public static String postRequest(String urlString, String data, String username, String password) {
-        String serverResponse = null;
+         String serverResponse = "This value will be used"; 
+        System.out.println(serverResponse);
 
         try {
             URI uri = new URI(urlString);
