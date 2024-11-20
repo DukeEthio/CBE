@@ -16,7 +16,7 @@ public class SchoolPaymentClient {
         String password = "password123";
 
         // JSON Payload for POST request
-        String jsonData = "{\"id\": " + uniqueID + ",\"amount\": 2980.84,\"penalty\": 100.00}";
+        String jsonData = "{\"studentId\": " + uniqueID + ",\"amount\": 1000.00,\"penalty\": 100.00}";
 
         // Call GET Method
         String callGetMethod = getRequest(baseURL + "/api/CBE/schoolbill/" + uniqueID, username, password);
