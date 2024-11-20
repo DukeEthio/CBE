@@ -141,5 +141,5 @@ You can use tools like Postman
 **1. Clone the repository:**
 
 ```sh
-git clone https://gitlab.cbe.com.et/MesfinMitikie/ifb_training/schoolpaysys.git
+git clone https://gitlab.cbe.com.et/MesfinMitikie/ifb_training/schoolpaysys.git (https://github.com/DukeEthio/CBE.git)
 cd schoolpaysys
