@@ -5,8 +5,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
-import java.util.Base64;
-
+import org.apache.commons.codec.binary.Base64;
 
 public class SchoolPaymentClient {
 
@@ -42,8 +41,7 @@ public class SchoolPaymentClient {
 
             // Add Basic Authentication Header
             String credentials = username + ":" + password;
-            //String encode = Base64.getEncoder().encodeToString(credentials.getBytes());
-            String encode = Base64.getEncoder().encodeToString(credentials.getBytes()); 
+            String encode = Base64.encodeBase64String(credentials.getBytes());
             System.out.println("Encoded credentials: " + encode);
 
             connection.setRequestProperty("Authorization", "Basic " + encode);
@@ -61,7 +59,7 @@ public class SchoolPaymentClient {
 
     // POST Request Implementation
     public static String postRequest(String urlString, String data, String username, String password) {
-         String serverResponse = "This value will be used"; 
+        String serverResponse = "This value will be used"; 
         System.out.println(serverResponse);
 
         try {
@@ -74,7 +72,7 @@ public class SchoolPaymentClient {
 
             // Add Basic Authentication Header
             String credentials = username + ":" + password;
-            String encode = Base64.getEncoder().encodeToString(credentials.getBytes()); 
+            String encode = Base64.encodeBase64String(credentials.getBytes());
             System.out.println("Encoded credentials: " + encode);
 
             connection.setRequestProperty("Authorization", "Basic " + encode);
