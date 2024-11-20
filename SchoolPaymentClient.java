@@ -42,7 +42,9 @@ public class SchoolPaymentClient {
 
             // Add Basic Authentication Header
             String credentials = username + ":" + password;
-            String encode = Base64.getEncoder().encodeToString(credentials.getBytes());
+            //String encode = Base64.getEncoder().encodeToString(credentials.getBytes());
+            String encode = Base64.getEncoder().encodeToString(credentials.getBytes()); 
+            System.out.println("Encoded credentials: " + encode);
 
             connection.setRequestProperty("Authorization", "Basic " + encode);
 
@@ -72,7 +74,8 @@ public class SchoolPaymentClient {
 
             // Add Basic Authentication Header
             String credentials = username + ":" + password;
-            String encode = Base64.getEncoder().encodeToString(credentials.getBytes());
+            String encode = Base64.getEncoder().encodeToString(credentials.getBytes()); 
+            System.out.println("Encoded credentials: " + encode);
 
             connection.setRequestProperty("Authorization", "Basic " + encode);
 
