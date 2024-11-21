@@ -22,7 +22,7 @@ PROCESS:
 
     * Call Java Client for API Interaction
     API.RESPONSE = ""
-    CALLJ "SchoolpaymentClient", "POST", BILL.ID SETTING API.RESPONSE ON ERROR
+    CALLJ "SchoolPaymentClient", "postRequest", "POST", "10.2.16.189/api/payment/create", BILL.ID SETTING API.RESPONSE ON ERROR
         CRT "Java Client Error"
         RETURN
     END
